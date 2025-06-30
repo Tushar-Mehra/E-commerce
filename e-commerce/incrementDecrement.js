@@ -54,7 +54,6 @@ export const incrementDecrement = (event, id, stock, price) => {
   productQuantity.innerText = quantity;
   productPrice.innerText = localStoragePrice;
 
-  //todo Don't Forget To LIKE SHARE & SUBSCRIBE TO THAPA TECHNCIAL YOUTUBE CHANNEL 👉 https://www.youtube.com/thapatechnical
 
   // -----------------------------------------------------
   // calculating the card total in our cartProducts page
