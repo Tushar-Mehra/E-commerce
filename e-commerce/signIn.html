@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(247, 247, 234);
+        }
+        .signup-pop{
+            /* flex-direction: column; */
+            display: flex;
+            height: 100vh;
+            /* width: 250px; */
+            align-items: center;
+            /* margin-left: 100px; */
+            justify-content: center;
+            /* background-color: rgb(247, 247, 234); */
+        }
+        .signup-box{
+            border: solid 1px;
+            border-radius: 7px;
+            padding: 25px;
+            border: none;
+            background-color: rgb(186, 224, 240);
+        }
+        .signin-but{
+            text-align: center;
+            border-radius: 4px;
+            padding: 7px;
+            font-size: 16px;
+            background-color: beige;
+            border:none;
+            cursor: pointer;
+           
+            
+        }
+        input{
+            background-color: rgb(186, 224, 240);
+            width:230px;
+            height: 30px;
+            /* box-shadow: none; */
+            border: none;
+            outline: none;
+            border-bottom: 1px solid;
+            /* border-radius: 4px; */
+            
+        }
+        .di{
+            display: flex;
+            justify-content: center;
+        }
+        .spinner {
+      border: 4px solid #ccc;
+      border-top: 4px solid #333;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 10px auto;
+      display: none;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style>
+</head>
+<body>
+    <form onsubmit="login(event)"> 
+        <div class="signup-pop">
+            <div class="signup-box">
+        <h2 style="text-align: center;">Login</h2>
+        <p style="text-align: center;">Welcome Back!</p>
+        <input style="width: 230px;" type="email" id="loginUser"  placeholder="Email" required><br>
+        <br>
+        <input style="width: 230px;" type="password" id="loginPass" placeholder="Password" required>
+        <br>
+        <Br><br>
+       <div class="di">
+            <button type="submit" class="signin-but">Login</button>    
+        </div>
+        <div class="spinner" id="spinner"></div>
+          <p id="loginMsg"></p>
+        <br>
+        <p>Don't have an account <a href="signup.html">Sign Up</a> here</p>
+        
+    </div>
+    </form>
+      <script>
+    function login(event) {
+      event.preventDefault();
+      const username = document.getElementById("loginUser").value;
+      const password = document.getElementById("loginPass").value;
+      const msg = document.getElementById("loginMsg");
+      const spinner = document.getElementById("spinner");
+
+      const savedUser = JSON.parse(localStorage.getItem("user"));
+
+      if (!savedUser || username !== savedUser.username || password !== savedUser.password) {
+        msg.style.color = "red";
+        msg.textContent = "Invalid email or password!";
+        return;
+      }
+
+      // Correct credentials
+      msg.style.color = "blue";
+      msg.textContent = "Logging in...";
+      spinner.style.display = "block";
+
+      setTimeout(() => {
+        localStorage.setItem("loggedIn", "true");
+        msg.style.color = "green";
+        msg.textContent = "Login successful! Redirecting...";
+        spinner.style.display = "none";
+
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 700);
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
