@@ -46,7 +46,6 @@ export const addToCart = (event, id, stock) => {
     return false;
   }
 
-  //todo Don't Forget To LIKE SHARE & SUBSCRIBE TO THAPA TECHNCIAL YOUTUBE CHANNEL 👉 https://www.youtube.com/thapatechnical
 
   price = Number(price * quantity);
   quantity = Number(quantity);
