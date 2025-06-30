@@ -55,6 +55,7 @@ export const incrementDecrement = (event, id, stock, price) => {
   productPrice.innerText = localStoragePrice;
 
 
+
   // -----------------------------------------------------
   // calculating the card total in our cartProducts page
   // --------------------------------------------------------
